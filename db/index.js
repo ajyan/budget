@@ -6,27 +6,18 @@ mongoose.connect("mongodb://localhost/budgetfuntimes", {
 });
 
 const budgetSchema = new Schema({
-  Income: Number,
-  Bills: Number,
-  Savings: Number
+  income: Number,
+  bills: Number,
+  savings: Number
 });
 
 const budget = mongoose.model("budget", budgetSchema);
 
 const logSchema = new Schema({
-  Category: String,
-  Name: String,
-  Price: Number,
-  Date: Date
+  category: String,
+  name: String,
+  price: Number,
+  date: Date
 });
 
 const log = mongoose.model("log", logSchema);
-
-let newLogTest = new log({
-  Category: "Fun",
-  Name: "1,000 beers",
-  Price: 5,
-  Date: Date.now()
-});
-
-newLogTest.save();

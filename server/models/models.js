@@ -1,9 +1,15 @@
-var { Log, Budget } = require('../../db');
+var { Log, Budget } = require("../../db");
 
 module.exports = {
   // retrieves expense documents
   getExpenses: () => {
     return Log.find({});
+  },
+
+  getTotalExpenses: () => {
+    return Log.aggregate([
+      { $group: { _id: null, amount: { $sum: "$price" } } }
+    ]);
   },
 
   // retrieves the budget documents

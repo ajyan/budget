@@ -6,17 +6,18 @@ module.exports = {
     return Log.find({}).exec();
   },
 
-  // retrieves the
+  // retrieves the budget documents
   getBudgets: () => {
     return Budget.find({}).exec();
   },
+
   // creates an expense document
-  createExpense: record => {
+  createExpense: expense => {
     let newExpense = new Log({
-      category: record.category,
-      name: record.name,
-      price: record.price,
-      date: record.date
+      category: expense.category,
+      name: expense.name,
+      price: expense.price,
+      date: expense.date
     });
     return newExpense.save().exec();
   },

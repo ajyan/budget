@@ -1,12 +1,16 @@
 var { db } = require('../../db');
 
 module.exports = {
-  // retrieves then entire expense log
+  // retrieves expense documents
   getExpenses: () => {
-    Log.find({}).exec();
+    return Log.find({}).exec();
   },
 
-  // saves an expense entry
+  // retrieves the
+  getBudgets: () => {
+    return Budget.find({}).exec();
+  },
+  // creates an expense document
   createExpense: record => {
     let newExpense = new Log({
       category: record.category,
@@ -14,7 +18,7 @@ module.exports = {
       price: record.price,
       date: record.date
     });
-    newExpense.save().exec();
+    return newExpense.save().exec();
   },
 
   // creates a new budget document
@@ -24,5 +28,11 @@ module.exports = {
       bills: budget.bills,
       savings: budget.savings
     });
+    return newBudget.save().exec();
+  },
+
+  // return expense logs by category
+  getExpensesByCategory: category => {
+    return Log.find({ category: category }).exec;
   }
 };

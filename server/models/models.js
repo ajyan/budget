@@ -14,13 +14,13 @@ module.exports = {
   // creates an expense document
   createExpense: expense => {
     let newExpense = new Log(expense);
+    console.log(newExpense);
     return newExpense.save();
   },
 
   // creates a new budget document
   createBudget: budget => {
     let newBudget = new Budget(budget);
-
     return newBudget.save();
   },
 

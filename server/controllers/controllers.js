@@ -38,7 +38,7 @@ module.exports = {
         });
     },
     post: (req, res) => {
-      let log = req.body.log;
+      let log = req.body;
       createExpense(log)
         .then(() => {
           res.sendStatus(201);

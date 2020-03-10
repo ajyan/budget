@@ -35,5 +35,3 @@ module.exports = {
     return Log.find({ category: category }).exec();
   }
 };
-
-module.exports.getTotalExpenses().then(data => console.log(data));

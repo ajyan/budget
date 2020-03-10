@@ -1,7 +1,7 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/budgetfuntimes", {
+var db = mongoose.connect('mongodb://localhost/budgetfuntimes', {
   useNewUrlParser: true
 });
 
@@ -11,7 +11,7 @@ const budgetSchema = new Schema({
   savings: Number
 });
 
-const budget = mongoose.model("budget", budgetSchema);
+const Budget = mongoose.model('budget', budgetSchema);
 
 const logSchema = new Schema({
   category: String,
@@ -20,4 +20,6 @@ const logSchema = new Schema({
   date: Date
 });
 
-const log = mongoose.model("log", logSchema);
+const Log = mongoose.model('log', logSchema);
+
+module.exports = { Budget, Log, db };

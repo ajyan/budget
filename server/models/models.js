@@ -33,6 +33,6 @@ module.exports = {
 
   // return expense logs by category
   getExpensesByCategory: category => {
-    return Log.find({ category: category }).exec;
+    return Log.find({ category: category }).exec();
   }
 };

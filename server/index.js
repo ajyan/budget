@@ -9,6 +9,7 @@ app.use(parser.json());
 
 app.use("/", router);
 
+//some stuff
 //SET UP ROUTER
 
 // Routes

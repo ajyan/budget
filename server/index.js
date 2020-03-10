@@ -2,10 +2,11 @@ var express = require("express");
 var parser = require("body-parser");
 var app = express();
 var port = 3100;
-const router = require("../server/router");
+const router = require("./router");
 
 // Middleware
 app.use(parser.json());
+
 app.use("/", router);
 
 //SET UP ROUTER

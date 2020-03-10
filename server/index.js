@@ -3,6 +3,7 @@ var parser = require('body-parser');
 var app = express();
 var port = 3100;
 const router = require('./router');
+var path = require('path');
 
 // Middleware
 app.use(parser.json());

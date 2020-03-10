@@ -1,28 +1,25 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'react-client/dist');
-
-var APP_DIR = path.resolve(__dirname, 'react-client/src');
-
-var config = {
-  entry: APP_DIR + '/index.jsx',
+const config = {
+  entry: './react-client/src/index.jsx',
+  output: {
+    path: path.resolve(__dirname, 'react-client/dist'),
+    filename: 'bundle.js'
+  },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?/,
-        include: APP_DIR,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
       }
     ]
   },
-  output: {
-    path: BUILD_DIR,
-    filename: 'bundle.js'
-  }
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  mode: 'production'
 };
 
 module.exports = config;

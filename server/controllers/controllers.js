@@ -17,7 +17,7 @@ module.exports = {
         });
     },
     post: (req, res) => {
-      let budget = req.body.budget;
+      let budget = req.body;
       createBudget(budget)
         .then(() => {
           res.sendStatus(201);
